@@ -1,28 +1,4 @@
-
-
-var state = history.state || {};
-
-var reloadCount = state.reloadCount || 0;
-
-if (performance.navigation.type === 1) { // Reload
-
-  state.reloadCount = ++reloadCount;
-
-  history.replaceState(state, null, document.URL);
-
-} else if (reloadCount) {
-
-  delete state.reloadCount;
-
-  reloadCount = 0;
-
-  history.replaceState(state, null, document.URL);
-
-}
-
-if (reloadCount > 0) {
-
-  var randomNumber1 = Math.floor(Math.random() * 6) + 1; //1-6
+var randomNumber1 = Math.floor(Math.random() * 6) + 1; //1-6
 
   var randomDiceImage = "dice" + randomNumber1 + ".png"; //dice1.png - dice6.png
 
@@ -48,6 +24,3 @@ if (reloadCount > 0) {
   else{
     document.querySelector("h1").innerHTML = "Draw!";
   }
-
-}
-
